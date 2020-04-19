@@ -1,15 +1,5 @@
 "use strict";
 
-function unprogressButton(element = $('span.spinner-border').parent("button")) {
-    element.find('span.spinner-border').remove();
-    element.removeAttr('disabled');
-}
-
-function progressButton(element) {
-    element.prepend('<span class="spinner-border spinner-border-sm mr-1"></span> ');
-    element.attr('disabled', 'disabled');
-}
-
 function errorField(field, message) {
     field.addClass('is-invalid');
     if (field.next().hasClass('invalid-feedback'))
@@ -17,7 +7,17 @@ function errorField(field, message) {
     field.after('<div class="invalid-feedback">' + message + '</div>')
 }
 
-var successResponse = function(response) {
+window.unprogressButton = function(element = $('span.spinner-border').parent("button")) {
+    element.find('span.spinner-border').remove();
+    element.removeAttr('disabled');
+};
+
+window.progressButton = function(element) {
+    element.prepend('<span class="spinner-border spinner-border-sm mr-1"></span> ');
+    element.attr('disabled', 'disabled');
+};
+
+window.successResponse = function(response) {
     if (response.data.swal) {
         swal({
             title: "",
@@ -62,7 +62,7 @@ var successResponse = function(response) {
 
 };
 
-var errorResponse = function(response) {
+window.errorResponse = function(response) {
     response = response.response;
 
     if (response.status !== 422) {
