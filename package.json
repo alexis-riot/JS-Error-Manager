@@ -1,6 +1,6 @@
 {
   "name": "@alexisriot/js-error-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JS Error Manager is a simple library to manage errors from Laravel Validators.",
   "main": "manager.js",
   "scripts": {
