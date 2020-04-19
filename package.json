@@ -1,29 +1,29 @@
 {
-  "name": "@alexisriot/js-error-manager",
-  "version": "1.0.1",
-  "description": "JS Error Manager is a simple library to manage errors from Laravel Validators.",
-  "main": "manager.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexis-riot/JS-Error-Manager.git"
-  },
-  "keywords": [
-    "JS",
-    "Error",
-    "Manager",
-    "Axios",
-    "Ajax",
-    "Requests",
-    "Laravel",
-    "Validators"
-  ],
-  "author": "Alexis Riot",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alexis-riot/JS-Error-Manager/issues"
-  },
-  "homepage": "https://github.com/alexis-riot/JS-Error-Manager#readme"
+    "name": "@alexisriot/js-error-manager",
+    "version": "1.0.1",
+    "description": "JS Error Manager is a simple library to manage errors from Laravel Validators.",
+    "main": "manager.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/alexis-riot/JS-Error-Manager.git"
+    },
+    "keywords": [
+        "JS",
+        "Error",
+        "Manager",
+        "Axios",
+        "Ajax",
+        "Requests",
+        "Laravel",
+        "Validators"
+    ],
+    "author": "Alexis Riot",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/alexis-riot/JS-Error-Manager/issues"
+    },
+    "homepage": "https://github.com/alexis-riot/JS-Error-Manager#readme"
 }

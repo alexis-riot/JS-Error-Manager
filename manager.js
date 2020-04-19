@@ -19,21 +19,20 @@ window.progressButton = function(element) {
 
 window.successResponse = function(response) {
     if (response.data.swal) {
-        swal({
+        Swal.fire({
             title: "",
             text: response.data.message,
             icon: response.data.status,
-            dangerMode: (response.data.status === "danger"),
         })
-            .then(function() {
-                if (response.data.redirect) {
-                    window.location.href = response.data.redirect;
-                } else {
-                    if (response.data.reset)
-                        $('button[disabled]').closest('form')[0].reset();
-                    unprogressButton();
-                }
-            });
+        .then(function() {
+            if (response.data.redirect) {
+                window.location.href = response.data.redirect;
+            } else {
+                if (response.data.reset)
+                    $('button[disabled]').closest('form')[0].reset();
+                unprogressButton();
+            }
+        });
     } else {
         switch (response.data.status) {
             case "success":

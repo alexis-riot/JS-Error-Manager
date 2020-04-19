@@ -7,9 +7,12 @@ JS Error Manager is a simple library to use with Laravel Validators. You can mak
 Use the package manager [npm](https://www.npmjs.com/) to install JS Error Manager.
 
 ```bash
-npm i @alexisriot/js-error-manager --save
+npm i @alexisriot/js-error-manager jquery toastr sweetalert2 --save
 ```
 ```js
+window.$ = window.jQuery = require('jquery');
+window.toastr = require('toastr');
+window.Swal = require('sweetalert2');
 require('@alexisriot/js-error-manager');
 ```
 
@@ -42,8 +45,37 @@ require('@alexisriot/js-error-manager');
     });
 </script>
 
+Using this script you can easily send some data as JSON.
+
+```php
+class UserController extends Controller
+{
+    public function profile() {
+        return view('Admin::user.profile')
+            ->with('user', Auth::user());
+    }
+
+    public function profilePatch(PatchUserRequest $request) {
+        return response()->json([
+            'status' => 'success',
+            'message' => 'The method has been created.',
+            'reset' => true,
+            'swal' => true,
+            'redirect' => route('admin.user.profile'),
+        ], 200);
+    }
+}
 ```
 
+**PARAMETERS:**
+
+- `status` allow you to set the type of your response _(success, error, info, danger...)_.
+
+- `swal (optionnal)` allow you to use the Swal plugin instead of Toastr. The plugin Swal display a large window at the center of your screen instead of Toastr that he display a notification at the top-right of your screen. By default, the toastr is used.
+
+- `redirect (optionnal)` allow you to redirect the user after 3 seconds. It show the message and redirect the user to the link. If redirect is not set, the user will be not redirected.
+
+- `reset` allow you to reset the form after it was submitted. Useful for form like password changes.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
