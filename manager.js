@@ -2,8 +2,6 @@
 
 function errorField(field, message) {
     field.addClass('is-invalid');
-    if (field.next().hasClass('invalid-feedback'))
-        field.next().remove();
     field.after('<div class="invalid-feedback">' + message + '</div>')
 }
 
@@ -67,6 +65,10 @@ window.errorResponse = function(response) {
     if (response.status !== 422) {
         toastr.error("An error occured on server.");
     } else {
+        $('.is-invalid')
+            .removeClass('is-invalid')
+            .next('span.invalid-feedback').remove();
+
         toastr.error(response.data.message);
         for (var index in response.data.errors) {
             errorField($('#' + index), response.data.errors[index][0]);
